@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                     margin: EdgeInsets.only(top:80, left:20, right:20),
                     child: Text("Hoş Geldin",
                         style: GoogleFonts.inter(
-                          color: Colors.black87,
+                          color: Color(0xff7f3711),
                           fontSize:40,
                           fontWeight: FontWeight.w500, )),
                   ),
@@ -89,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         }, icon: Icon(
                           sifre_gozukme ? Icons.remove_red_eye_outlined : Icons.remove_red_eye,
-                        ), color: Colors.green,)
+                        ), color: Color(0xff7f3711),)
                       ],
                     ),
                   ),
@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: MediaQuery.of(context).size.width,
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Color(0xff5db075),
+                          color: Color(0xff7f3711),
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: [
                             BoxShadow(
@@ -131,14 +131,14 @@ class _LoginPageState extends State<LoginPage> {
                             child: IconButton(onPressed:  () {
                             }, icon: Icon(
                               Icons.facebook_outlined,
-                            ), color: Colors.green,)
+                            ), color: Color(0xff7f3711),)
                         ),
                         Container(
                             margin: EdgeInsets.symmetric(),
                             child: IconButton(onPressed:  () {
                             }, icon: Icon(
                               Icons.g_mobiledata_outlined,
-                            ), color: Colors.green,)
+                            ), color: Color(0xff7f3711),)
                         ),
                       ],
                     ),
@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                     margin: EdgeInsets.only(top:30, left:30, right:20),
                     child: Text("Şifremi Unuttum",
                         style: GoogleFonts.inter(
-                          color: Colors.green,
+                          color: Color(0xff7f3711),
                           fontSize:15,
                           fontWeight: FontWeight.w500, )),
                   ),

@@ -23,7 +23,7 @@ class _State extends State<Onboardingscreen> {
       bottomSheet: Container(
         color: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-        child: isLastPage? basla() : Row(
+        child: isLastPage? basla(context) : Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
 
@@ -77,7 +77,7 @@ class _State extends State<Onboardingscreen> {
 
 // Başlayalım tuşu
 
-Widget basla(){
+Widget basla(BuildContext context){
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(8),
@@ -87,11 +87,11 @@ Widget basla(){
     height: 55,
     child: TextButton(
         onPressed: () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => LoginPage()),
-    );
-    },
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          );
+        },
         child: Text("Başlayalım!", style: TextStyle(color: Colors.white),)),
   );
 }
