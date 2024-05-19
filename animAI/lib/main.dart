@@ -1,8 +1,11 @@
 import 'package:animai/Onboarding/onboardingscreen.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:animai/consts/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
+  Gemini.init(apiKey: geminiAPIKey);
   runApp(const MyApp());
 }
 
