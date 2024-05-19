@@ -1,34 +1,19 @@
-
-import 'package:flutter/cupertino.dart';
+import 'package:animai/navigationmenu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPage> createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-
-  bool _isSigning = false;
-
-
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+class LoginPageState extends State<LoginPage> {
 
   bool sifre_gozukme=false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
                     margin: EdgeInsets.only(top:80,bottom: 40,right:30,left: 30),
                     padding: EdgeInsets.only(left: 15, right: 15,top: 5, bottom: 5),
                     child: TextFormField(
-                      controller: _emailController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'E-mail',
@@ -74,7 +58,6 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Expanded(
                           child: TextFormField(
-                            controller: _passwordController,
                             obscureText: sifre_gozukme,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -95,11 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   InkWell(
-                    onTap: () {
-                      print("Tıklama");
-                      _signIn();
-
-                    },
+                    onTap: () => Get.to(()=> NavigationMenu()),
                     child: Container(
                       margin: EdgeInsets.only(top:10,bottom: 40,right:30,left: 30),
                       width: MediaQuery.of(context).size.width,
@@ -157,21 +136,4 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ));
   }
-  void _signIn() async {
-    setState(() {
-      _isSigning = true;
-    });
-
-    String email = _emailController.text;
-    String password = _passwordController.text;
-
-
-
-    setState(() {
-      _isSigning = false;
-    });
-
-
   }
-
-}
