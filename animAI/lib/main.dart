@@ -1,4 +1,5 @@
 import 'package:animai/Onboarding/onboardingscreen.dart';
+import 'package:animai/Pages/cubit/addMyAnimalCubit.dart';
 
 import 'package:animai/Pages/cubit/homePageCubit.dart';
 import 'package:animai/Pages/cubit/petsPageCubit.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context)=>HomePageCubit()),
         BlocProvider(create: (context)=>PetsPageCubit()),
+        BlocProvider(create: (context)=>AddMyAnimalCubit()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,

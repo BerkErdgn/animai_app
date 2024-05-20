@@ -1,3 +1,4 @@
+import 'package:animai/Pages/animalDetailScreen.dart';
 import 'package:animai/Pages/cubit/homePageCubit.dart';
 import 'package:animai/data/entity/animals.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class _HomepageState extends State<Homepage> {
                         print(animal);
                         return GestureDetector(
                           onTap: (){
-                           // Navigator.push(context, MaterialPageRoute(builder: (context) => AnimalDetailScreen(animal: animal)));
+                           Navigator.push(context, MaterialPageRoute(builder: (context) => AnimalDetailScreen(animal: animal)));
                           },
                           child: Card(
                             color: Color(0xFFFAECDF),

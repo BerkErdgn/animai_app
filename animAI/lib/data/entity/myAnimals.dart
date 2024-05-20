@@ -8,6 +8,7 @@ class MyAnimals{
   String petOwner;
   String animalImagUrl;
   String animalBreed;
+  String animalImportantNote;
 
   MyAnimals(
       {
@@ -18,7 +19,8 @@ class MyAnimals{
         required this.animalDoctorStatus,
         required this.petOwner,
         required this.animalImagUrl,
-        required this.animalBreed
+        required this.animalBreed,
+        required this.animalImportantNote
 
       });
 
@@ -32,6 +34,8 @@ class MyAnimals{
         petOwner: json ["petOwner"] as String? ?? '',
         animalImagUrl: json ["animalImagUrl"] as String? ?? '',
       animalBreed: json ["animalBreed"] as String? ?? '',
+      animalImportantNote: json ["animalImportantNote"] as String? ?? '',
+
     );
   }
 
