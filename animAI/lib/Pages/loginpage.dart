@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animai/Pages/registerPage.dart';
 import 'package:animai/data/auth/auth.dart';
 import 'package:animai/navigationmenu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     } on FirebaseAuthException catch(e){
       setState(() {
         errorMessage = e.message;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Hata oluştu: ${errorMessage}")));
       });
     }
     }
@@ -145,11 +147,19 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     margin: EdgeInsets.only(top:30, left:30, right:20),
-                    child: Text("Şifremi Unuttum",
-                        style: GoogleFonts.inter(
-                          color: Color(0xff7f3711),
-                          fontSize:15,
-                          fontWeight: FontWeight.w500, )),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => RegisterPage()),
+                        );
+                      },
+                      child: Text("Kayıt ol",
+                          style: GoogleFonts.inter(
+                            color: Color(0xff7f3711),
+                            fontSize:15,
+                            fontWeight: FontWeight.w500, )),
+                    ),
                   ),
                 ],
               ),
