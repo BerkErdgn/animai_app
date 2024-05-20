@@ -62,7 +62,7 @@ class _AddMyAnimalPageState extends State<AddMyAnimalPage> {
       animalImagUrl= "https://firebasestorage.googleapis.com/v0/b/animai-5b409.appspot.com/o/rabbitImage.png?alt=media&token=6007bfbc-4809-4132-84f6-9493e194ea50";
     }else if(selectedAnimalSpecies =="Tiger"){
       animalImagUrl= "https://firebasestorage.googleapis.com/v0/b/animai-5b409.appspot.com/o/tigerImage.png?alt=media&token=5806dc42-a32e-42d5-8b5a-2911c1c6efa8";
-    }else if(selectedAnimalSpecies =="bird"){
+    }else if(selectedAnimalSpecies =="Bird"){
       animalImagUrl= "https://firebasestorage.googleapis.com/v0/b/animai-5b409.appspot.com/o/birdImage.png?alt=media&token=635b98e2-8d00-4a3f-a6d9-94bb64ed75ea";
     }else if(selectedAnimalSpecies =="Cat"){
       animalImagUrl= "https://firebasestorage.googleapis.com/v0/b/animai-5b409.appspot.com/o/catImage.png?alt=media&token=db8e26e0-3708-4019-af29-a31b55187cb1";
