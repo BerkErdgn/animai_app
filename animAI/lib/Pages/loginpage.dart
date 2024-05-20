@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:animai/data/auth/auth.dart';
 import 'package:animai/navigationmenu.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,10 +11,25 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> {
+  String? errorMessage = "";
+
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword()async{
+    try{
+      await Auth().signInWithEmailAndPassword(email: _controllerEmail.text, password: _controllerPassword.text);
+      Get.to(()=> NavigationMenu());
+    } on FirebaseAuthException catch(e){
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+    }
 
   bool sifre_gozukme=false;
 
@@ -40,7 +59,8 @@ class LoginPageState extends State<LoginPage> {
                     ),
                     margin: EdgeInsets.only(top:80,bottom: 40,right:30,left: 30),
                     padding: EdgeInsets.only(left: 15, right: 15,top: 5, bottom: 5),
-                    child: TextFormField(
+                    child: TextField(
+                      controller: _controllerEmail ,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'E-mail',
@@ -57,7 +77,8 @@ class LoginPageState extends State<LoginPage> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: TextFormField(
+                          child: TextField(
+                            controller: _controllerPassword,
                             obscureText: sifre_gozukme,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -78,7 +99,7 @@ class LoginPageState extends State<LoginPage> {
                   ),
 
                   InkWell(
-                    onTap: () => Get.to(()=> NavigationMenu()),
+                    onTap: signInWithEmailAndPassword ,
                     child: Container(
                       margin: EdgeInsets.only(top:10,bottom: 40,right:30,left: 30),
                       width: MediaQuery.of(context).size.width,

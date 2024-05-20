@@ -37,6 +37,6 @@ class NavigationController extends GetxController {
 
   final Rx<int> selectedIndex =0.obs;
 
-  final screens = [const Homepage(),const Petspage(),const Geminipage(),const Profilepage()];
+  final screens = [const Homepage(),const Petspage(),const Geminipage(),Profilepage()];
 
 }

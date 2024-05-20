@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548546010883",
+    "project_id": "animai-5b409",
+    "storage_bucket": "animai-5b409.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548546010883:android:20115f22b896030ebad336",
+        "android_client_info": {
+          "package_name": "com.example.animai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcMFiCQc0reGNrYaBGj5L6KG_P2OqtT-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
