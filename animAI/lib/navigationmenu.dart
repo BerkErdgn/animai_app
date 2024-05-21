@@ -24,7 +24,7 @@ class NavigationMenu extends StatelessWidget {
               NavigationDestination(icon: Icon(Icons.home), label: 'Anasayfa'),
               NavigationDestination(icon: Icon(CupertinoIcons.paw), label: 'Hayvanlarım'),
               NavigationDestination(icon: Icon(CupertinoIcons.keyboard_chevron_compact_down), label: 'AI'),
-              NavigationDestination(icon: Icon(CupertinoIcons.profile_circled), label: 'Profile'),
+              NavigationDestination(icon: Icon(CupertinoIcons.profile_circled), label: 'Profil'),
         ],
         ),
       ),
