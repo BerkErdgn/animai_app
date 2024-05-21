@@ -9,8 +9,8 @@ class PetsPageCubit extends Cubit<List<MyAnimals>>{
   var collectionMyAnimals = FirebaseFirestore.instance.collection("myAnimalsData");
 
 
-  Future<void> getMyAnimal()async{
-    collectionMyAnimals.snapshots().listen((event){
+  Future<void> getMyAnimal(String email)async{
+    collectionMyAnimals.where("petOwner", isEqualTo: email).snapshots().listen((event){
       var myAnimalsList = <MyAnimals>[];
 
       var documents = event.docs;

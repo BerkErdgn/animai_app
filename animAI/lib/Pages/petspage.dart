@@ -1,6 +1,8 @@
 import 'package:animai/Pages/addMyAnimalPage.dart';
 import 'package:animai/Pages/cubit/petsPageCubit.dart';
+import 'package:animai/data/auth/auth.dart';
 import 'package:animai/data/entity/myAnimals.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,11 +14,11 @@ class Petspage extends StatefulWidget {
 }
 
 class _PetspageState extends State<Petspage> {
-  
+  final User? user = Auth().currentUser;
   @override
   void initState() {
     super.initState();
-    context.read<PetsPageCubit>().getMyAnimal();
+    context.read<PetsPageCubit>().getMyAnimal(user?.email ?? "user emial");
   }
   
   @override
@@ -53,7 +55,7 @@ class _PetspageState extends State<Petspage> {
                   child: GridView.builder(
                     itemCount: myAnimalsList.length,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount:2, childAspectRatio: 1/1.6
+                        crossAxisCount:2, childAspectRatio: 1/1.8
                     ),
                     itemBuilder:(context, index){
                       var myAnimal = myAnimalsList[index];
@@ -82,6 +84,12 @@ class _PetspageState extends State<Petspage> {
                                       "Tür = ${myAnimal.animalBreed}",
                                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFFFD57159))
                                   ),
+                                  Text(
+                                      "Önemli not = ${myAnimal.animalImportantNote}",
+                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFFFD57159)),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 4
+                                  ),
                                 ],
                               )
                             ],
@@ -95,7 +103,45 @@ class _PetspageState extends State<Petspage> {
               ],
             );
           }else{
-            return const Center(
+            return Container(
+              child: const SizedBox( height: 200, width: 200,
+                child: Padding(padding :EdgeInsets.only(left: 15,top:20),
+                  child: Card(
+                    color: Color(0xFFFAECDF),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                                "Hiç Hayvanın yok mu ?",
+                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Color(0xFF008580))
+                            ),
+                            Padding(padding :EdgeInsets.only(top:20),
+                              child: Text(
+                                  "☹",
+                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFFFD57159))
+                              ),
+                            ),
+                            Padding(padding :EdgeInsets.only(top:5),
+                              child: Text(
+                                  "Hemen bir tane sahiplen bence.",
+                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFFFD57159))
+                              ),
+                            ),
+                            Padding(padding :EdgeInsets.only(top:5),
+                              child: Text(
+                                  "Hem o hemde sen mutlu olursun ",
+                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFFFD57159))
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                              ),
+                ),
+              ),
             );
           }
         }

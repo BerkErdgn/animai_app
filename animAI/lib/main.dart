@@ -1,12 +1,13 @@
 import 'package:animai/Onboarding/onboardingscreen.dart';
+import 'package:animai/Pages/cubit/addMyAnimalCubit.dart';
 
 import 'package:animai/Pages/cubit/homePageCubit.dart';
 import 'package:animai/Pages/cubit/petsPageCubit.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:animai/Pages/splash.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:animai/consts/constant.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context)=>HomePageCubit()),
         BlocProvider(create: (context)=>PetsPageCubit()),
+        BlocProvider(create: (context)=>AddMyAnimalCubit()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -38,7 +40,10 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
           useMaterial3: true,
         ),
-        home: const Onboardingscreen(),
+        home: AnimatedSplashScreen(splash: 'assets/logo.png',
+            splashIconSize:400,
+            splashTransition: SplashTransition.rotationTransition,
+            nextScreen: Onboardingscreen())
       ),
     );
   }

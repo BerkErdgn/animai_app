@@ -4,7 +4,7 @@ class Onboardingitems {
   List<Onboardinginfo> items = [
 Onboardinginfo(
     title: "Vahşi Hayvanlar",
-    descriptions: "Dünyanın dört bir yanındaki egzotik hayvanlar hakkında bilgi edinmek, ne gibi özelliklere sahipler öğrenmek iister misin?",
+    descriptions: "Dünyanın dört bir yanındaki egzotik hayvanlar hakkında bilgi edinmek, ne gibi özelliklere sahipler öğrenmek ister misin?",
     image: "assets/obrdkertenkele.png"),
 
     Onboardinginfo(
